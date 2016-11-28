@@ -8,3 +8,7 @@ body, html {
 .dropDown div {
   color: #fff !important;
 }
+
+.SingleProvider {
+  width: 20%;
+}
