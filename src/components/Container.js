@@ -7,7 +7,7 @@ class Cards extends React.Component {
 
   constructor(props) {
     super(props);
-  }
+  };
 
   render() {
     var cards = [];

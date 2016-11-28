@@ -27,6 +27,7 @@ export default class AppBarInMine extends React.Component {
         disabled: true
       }
     );
+    this.props.loadStart();
     switch (this.state.value) {
       case 1:
         var type = 'top_rated';
