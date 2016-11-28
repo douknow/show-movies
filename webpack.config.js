@@ -6,7 +6,7 @@ module.exports = {
     index: './src/index.js'
   },
   output: {
-    path: './public', 
+    path: './public',
     filename: 'js/[name].js'
   },
   module: {
@@ -14,6 +14,11 @@ module.exports = {
       {
         test: /\.js$/,
         loader: 'babel-loader'
+      },
+      {
+        test: /\.css$/,
+        exclude: /noed_modules/,
+        loaders: ['style', 'css']
       }
     ]
   },
