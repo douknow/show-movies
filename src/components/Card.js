@@ -1,15 +1,10 @@
 import React from 'react';
 import {Card, CardMedia, CardTitle, CardText} from 'material-ui/Card';
 
-const style = {
-  width: 200,
-  float: 'left'
-}
-
 class CardMy extends React.Component {
   render() {
     return (
-      <Card style={style}>
+      <Card className="singleCard">
         <CardMedia
           overlay={<CardTitle title={this.props.title} />}
         >

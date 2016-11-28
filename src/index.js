@@ -23,14 +23,19 @@ class App extends React.Component {
       this.setState({
         datas: data.results
       });
-      console.log('请求成功');
     }.bind(this));
-  }
+  };
+  changeData(data) {
+    console.log(data);
+    this.setState({
+      datas: data
+    });
+  };
   render() {
     return (
       <div>
         <MuiThemeProvider>
-          <AppBar />
+          <AppBar changeData={this.changeData.bind(this)} />
         </MuiThemeProvider>
         <Container data={this.state.datas} />
       </div>

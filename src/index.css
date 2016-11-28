@@ -9,6 +9,21 @@ body, html {
   color: #fff !important;
 }
 
-.SingleProvider {
-  width: 20%;
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-content: center;
+  padding-top: 90px;
+}
+
+.singleCard {
+  width: calc(25% - 50px);
+  margin: 20px;
+}
+
+.appbar {
+  position: fixed !important;
+  background: #000;
 }

@@ -9,6 +9,8 @@ const styleLeft = {
   display: 'none'
 }
 
+var page = 1;
+
 export default class AppBarInMine extends React.Component {
   constructor(props) {
     super(props);
@@ -27,25 +29,25 @@ export default class AppBarInMine extends React.Component {
     );
     switch (this.state.value) {
       case 1:
-        var type = 'top_rated', page = 1;
+        var type = 'top_rated';
         getData.getData(type, page, function (data) {
-          console.log(data);
           this.setState(
             {
               disabled: false
             }
           );
+          this.props.changeData(data.results);
         }.bind(this));
         break;
       case 2:
-        var type = 'popular', page = 1;
+        var type = 'popular';
         getData.getData(type, page, function (data) {
-          console.log(data);
           this.setState(
             {
               disabled: false
             }
           );
+          this.props.changeData(data.results);
         }.bind(this));
         break;
       default:
@@ -55,6 +57,7 @@ export default class AppBarInMine extends React.Component {
   render() {
     return (
       <AppBar
+        className="appbar"
         title="Show movies"
         iconStyleLeft={styleLeft}
         iconElementRight={
