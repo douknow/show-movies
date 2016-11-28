@@ -2,6 +2,7 @@ import React from 'react';
 import AppBar from 'material-ui/AppBar';
 import DropDownMenu from 'material-ui/DropDownMenu';
 import MenuItem from 'material-ui/MenuItem'
+import getData from './getData';
 
 const styleLeft = {
   display: 'none'
@@ -23,6 +24,31 @@ export default class AppBarInMine extends React.Component {
         disabled: true
       }
     );
+    switch (this.state.value) {
+      case 1:
+        var type = 'top_rated', page = 1;
+        getData.getData(type, page, function (data) {
+          console.log(data);
+          this.setState(
+            {
+              disabled: false
+            }
+          );
+        }.bind(this));
+        break;
+      case 2:
+        var type = 'popular', page = 1;
+        getData.getData(type, page, function (data) {
+          console.log(data);
+          this.setState(
+            {
+              disabled: false
+            }
+          );
+        }.bind(this));
+        break;
+      default:
+    };
   };
 
   render() {
