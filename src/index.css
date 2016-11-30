@@ -11,16 +11,26 @@ body, html {
 
 .container {
   display: flex;
-  flex-direction: row;
+  padding-top: 90px;
   flex-wrap: wrap;
   justify-content: space-around;
-  align-content: center;
-  padding-top: 90px;
+}
+
+.container::after {
+  flex-grow: 1;
+  width: 300px;
+  content: '';
+  margin: 10px;
+}
+
+div.img img {
+  display: block;
 }
 
 .singleCard {
-  width: calc(25% - 50px);
-  margin: 20px;
+  width: 300px;
+  margin: 10px;
+  flex-grow: 1;
 }
 
 .appbar {
