@@ -63,7 +63,7 @@
 /******/ 	}
 
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "cdd5638a230c8ccfdb1d"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "3a2a95e487725871eb30"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 
@@ -42255,13 +42255,33 @@
 	var CardMy = function (_React$Component) {
 	  _inherits(CardMy, _React$Component);
 
-	  function CardMy() {
+	  function CardMy(props) {
 	    _classCallCheck(this, CardMy);
 
-	    return _possibleConstructorReturn(this, (CardMy.__proto__ || Object.getPrototypeOf(CardMy)).apply(this, arguments));
+	    var _this = _possibleConstructorReturn(this, (CardMy.__proto__ || Object.getPrototypeOf(CardMy)).call(this, props));
+
+	    _this.state = {
+	      width: '100%',
+	      height: '300px'
+	    };
+	    window.addEventListener('resize', function () {
+	      var width = this.refs.img.width;
+	      this.setState({
+	        height: width * 1.45
+	      });
+	    }.bind(_this));
+	    return _this;
 	  }
 
 	  _createClass(CardMy, [{
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      var width = this.refs.img.width;
+	      this.setState({
+	        height: width * 1.45
+	      });
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
 	      return _react2.default.createElement(
@@ -42272,7 +42292,11 @@
 	          {
 	            overlay: _react2.default.createElement(_Card.CardTitle, { title: this.props.title })
 	          },
-	          _react2.default.createElement('img', { src: this.props.poster, alt: this.props.title })
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'img' },
+	            _react2.default.createElement('img', { width: this.state.width, ref: 'img', height: this.state.height, src: this.props.poster })
+	          )
 	        )
 	      );
 	    }
@@ -44287,7 +44311,7 @@
 	exports.push([module.id, "@import url(https://fonts.googleapis.com/css?family=Roboto:300,400,500);", ""]);
 
 	// module
-	exports.push([module.id, "body, html {\r\n  margin: 0;\r\n  padding: 0;\r\n}\r\n\r\n.dropDown div {\r\n  color: #fff !important;\r\n}\r\n\r\n.container {\r\n  display: flex;\r\n  flex-direction: row;\r\n  flex-wrap: wrap;\r\n  justify-content: space-around;\r\n  align-content: center;\r\n  padding-top: 90px;\r\n}\r\n\r\n.singleCard {\r\n  width: calc(25% - 50px);\r\n  margin: 20px;\r\n}\r\n\r\n.appbar {\r\n  position: fixed !important;\r\n  background: #000;\r\n}\r\n\r\n.loader {\r\n  width: 100%;\r\n  height: 100%;\r\n  z-index: 1000;\r\n  background: #3f51b5;\r\n  position: fixed;\r\n  text-align: center;\r\n}\r\n\r\n.loader::before {\r\n  width: 1px;\r\n  content: '';\r\n  display: inline-block;\r\n  vertical-align: middle;\r\n  height: 100%;\r\n}\r\n\r\n@keyframes loader {\r\n  0% {\r\n    transform: rotate(0deg);\r\n  }\r\n  100% {\r\n    transform: rotate(360deg);\r\n  }\r\n}\r\n\r\n.loader div {\r\n  width: 32px;\r\n  height: 32px;\r\n  display: inline-block;\r\n  vertical-align: middle;\r\n  border-radius: 50%;\r\n  box-shadow: 0 -11px 0 13px rgba(255, 255, 255, .5) inset;\r\n  animation: loader 1s infinite linear;\r\n}\r\n", ""]);
+	exports.push([module.id, "body, html {\r\n  margin: 0;\r\n  padding: 0;\r\n}\r\n\r\n.dropDown div {\r\n  color: #fff !important;\r\n}\r\n\r\n.container {\r\n  display: flex;\r\n  padding-top: 90px;\r\n  flex-wrap: wrap;\r\n  justify-content: space-around;\r\n}\r\n\r\n.container::after {\r\n  flex-grow: 1;\r\n  width: 300px;\r\n  content: '';\r\n  margin: 10px;\r\n}\r\n\r\ndiv.img img {\r\n  display: block;\r\n}\r\n\r\n.singleCard {\r\n  width: 300px;\r\n  margin: 10px;\r\n  flex-grow: 1;\r\n}\r\n\r\n.appbar {\r\n  position: fixed !important;\r\n  background: #000;\r\n}\r\n\r\n.loader {\r\n  width: 100%;\r\n  height: 100%;\r\n  z-index: 1000;\r\n  background: #3f51b5;\r\n  position: fixed;\r\n  text-align: center;\r\n}\r\n\r\n.loader::before {\r\n  width: 1px;\r\n  content: '';\r\n  display: inline-block;\r\n  vertical-align: middle;\r\n  height: 100%;\r\n}\r\n\r\n@keyframes loader {\r\n  0% {\r\n    transform: rotate(0deg);\r\n  }\r\n  100% {\r\n    transform: rotate(360deg);\r\n  }\r\n}\r\n\r\n.loader div {\r\n  width: 32px;\r\n  height: 32px;\r\n  display: inline-block;\r\n  vertical-align: middle;\r\n  border-radius: 50%;\r\n  box-shadow: 0 -11px 0 13px rgba(255, 255, 255, .5) inset;\r\n  animation: loader 1s infinite linear;\r\n}\r\n", ""]);
 
 	// exports
 
